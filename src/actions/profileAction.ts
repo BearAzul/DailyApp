@@ -13,16 +13,16 @@ export const getProfileByUsername = async (username: string) => {
         id: true,
         name: true,
         username: true,
-        image: true,
         bio: true,
+        image: true,
         location: true,
         website: true,
         createAt: true,
         _count: {
           select: {
-            posts: true,
             followers: true,
             following: true,
+            posts: true,
           },
         },
       },
