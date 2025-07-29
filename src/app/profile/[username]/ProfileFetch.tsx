@@ -31,7 +31,7 @@ import toast from "react-hot-toast";
 type User = Awaited<ReturnType<typeof getProfileByUsername>>;
 type Posts = Awaited<ReturnType<typeof getUserPosts>>;
 
-interface ProfilePageClientProps {
+interface ProfileFetchProps {
   user: NonNullable<User>;
   posts: Posts;
   likedPosts: Posts;
@@ -43,7 +43,7 @@ const ProfileFetch = ({
   likedPosts,
   posts,
   user,
-}: ProfilePageClientProps) => {
+}: ProfileFetchProps) => {
   const { user: currentUser } = useUser();
 
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
