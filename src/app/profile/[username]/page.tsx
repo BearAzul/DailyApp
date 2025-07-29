@@ -7,11 +7,15 @@ import {
 import { notFound } from "next/navigation";
 import ProfileFetch from "./ProfileFetch";
 
+type ProfilePageProps = {
+  params: {
+    username: string;
+  };
+};
+
 export const generateMetadata = async ({
   params,
-}: {
-  params: { username: string };
-}) => {
+}: ProfilePageProps) => {
   const user = await getProfileByUsername(params.username);
   if (!user) return;
   return {
@@ -20,7 +24,7 @@ export const generateMetadata = async ({
   };
 };
 
-const ProfilePage = async ({ params }: { params: { username: string } }) => {
+const ProfilePage = async ({ params }: ProfilePageProps) => {
   const user = await getProfileByUsername(params.username);
   if (!user) notFound();
 
