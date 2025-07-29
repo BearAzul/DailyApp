@@ -1,0 +1,62 @@
+interface Tasks{
+  id: number,
+  title: string,
+  completed: boolean
+}
+
+interface CreateTaskRequest { 
+  title: string;
+}
+
+let tasks: Tasks[] = [
+  { id: 1, title: "Learn Next.js", completed: false },
+  { id: 2, title: "Build a Project Daily App", completed: true },
+  { id: 3, title: "Be Full-Stack Development", completed: false },
+]
+
+export async function GET() {
+  return Response.json(tasks)
+}
+
+export async function POST(request: Request) { 
+  try {
+    const body: CreateTaskRequest = await request.json();
+    if (!body.title) {
+      return Response.json({error: "Title is required"}, { status: 400 });
+    }
+
+    const newTask: Tasks = {
+      id: tasks.length + 1,
+      title: body.title,
+      completed: false,
+    };
+
+    tasks.push(newTask);
+    return Response.json(newTask, { status: 201 });
+  } catch (error) {
+    console.error("Error in POST tasks route:", error);
+    return Response.json({ error: "Failed to create task" }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = parseInt(searchParams.get("id") || "");
+    
+    if (!id) {
+      return Response.json({ error: "Task ID is required" }, { status: 400 });
+    }
+
+    const taskIndex = tasks.findIndex(task => task.id === id);
+    if (taskIndex === -1) {
+      return Response.json({ error: "Task not found" }, { status: 404 });
+    }
+
+    tasks.filter((task) => task.id !== id);
+    return Response.json({ message: "Task deleted successfully" }, { status: 200 });
+  } catch (error) {
+    console.error("Error in DELETE tasks route:", error);
+    return Response.json({ error: "Failed to delete task" }, { status: 500 });
+  }
+}
