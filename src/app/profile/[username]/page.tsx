@@ -19,8 +19,8 @@ export const generateMetadata = async ({
   const user = await getProfileByUsername(params.username);
   if (!user) return;
   return {
-    title: `${user.name} (@${user.username}) - Profile`,
-    description: `Profile of ${user.name}, a user on our platform.`,
+    title: `${user.name ?? user.username}`,
+    description: user.bio || `Check out ${user.username}'s profile.`,
   };
 };
 
