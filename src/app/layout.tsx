@@ -38,7 +38,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+            <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
             <div className="min-h-screen">
               <Navbar />
               <main className="py-8">
@@ -53,6 +53,9 @@ export default function RootLayout({
               </main>
             </div>
             <Toaster />
+            <p className="w-full text-center p-2">
+              &copy; All Right Reserved. AkimDev - Daily App {new Date().getFullYear()}
+            </p>
           </ThemeProvider>
         </body>
       </html>
