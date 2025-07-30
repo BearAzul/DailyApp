@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
@@ -10,14 +10,10 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "@/app/api/uploadthing/core";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const poppins = localFont({
+  src: "./fonts/poppins-latin-500-normal.woff",
+  variable: "--font-poppins-500",
+  weight: "500"
 });
 
 export const metadata: Metadata = {
@@ -34,9 +30,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className={`${poppins.variable} antialiased`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
             <div className="min-h-screen">
@@ -53,8 +47,9 @@ export default function RootLayout({
               </main>
             </div>
             <Toaster />
-            <p className="w-full text-center p-2">
-              &copy; All Right Reserved. AkimDev - Daily App {new Date().getFullYear()}
+            <p className="w-full text-center p-2 text-xs fixed bottom-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              &copy; All Right Reserved. AkimDev - Daily App{" "}
+              {new Date().getFullYear()}
             </p>
           </ThemeProvider>
         </body>
