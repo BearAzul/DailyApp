@@ -12,12 +12,12 @@ import {
 } from "./ui/sheet";
 import { Home, Menu, Sun, Moon, User, Bell, LogOut } from "lucide-react";
 import Link from "next/link";
-import { SignInButton, SignOutButton, useAuth } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 const MobileNavbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { isSignedIn } = useAuth();
+  const { user } = useUser();
 
   return (
     <div className="flex md:hidden items-center space-x-2">
@@ -53,7 +53,7 @@ const MobileNavbar = () => {
               </Link>
             </Button>
 
-            {isSignedIn ? (
+            {user ? (
               <>
                 <Button
                   variant="ghost"
@@ -70,11 +70,16 @@ const MobileNavbar = () => {
                   className="flex items-center gap-3 justify-start"
                   asChild
                 >
-                  <Link href="/profile">
+                  <Link
+                    href={`/profile/${
+                      user.username ??
+                      user.emailAddresses[0].emailAddress.split("@")[0]
+                    }`}
+                  >
                     <User className="w-4 h-4" />
                     Profile
                   </Link>
-                </Button> 
+                </Button>
                 <SignOutButton>
                   <Button
                     variant="destructive"
