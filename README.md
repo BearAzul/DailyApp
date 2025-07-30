@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Daily App
 
-## Getting Started
+DailyApp adalah aplikasi berbasis web modern berupa platform social media sederhana yang dibangun menggunakan framework Next.js. Aplikasi ini dirancang untuk keseharian seperti memposting gambar, kalimat, atau lainnya.
 
-First, run the development server:
+### Fitur
+* **Server-Side Rendering (SSR):** Dibangun dengan Next.js, aplikasi ini mendapat manfaat dari pra-render halaman di server untuk performa dan SEO yang lebih baik.
+* **Integrasi Database:** Memanfaatkan Prisma, sebuah ORM generasi berikutnya, untuk akses database yang lugas dan aman.
+* **UI Modern & Dapat Digunakan Kembali:** Proyek ini diatur dengan Tailwind CSS dan **shadcn/ui**, menyediakan koleksi komponen UI yang dapat disesuaikan.
+* **Dukungan TypeScript:** Seluruh basis kode ditulis dalam TypeScript, memberikan keamanan tipe (*type safety*) dan pengalaman pengembang yang lebih baik.
+* **Font yang Dioptimalkan:** Menggunakan `next/font` untuk memuat keluarga font Geist.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Teknologi
+<p align="left">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logoColor=white" alt="shadcn/ui"/>
+  <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white" alt="Prisma"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Neon-00E599?style=flat&logo=neon&logoColor=white" alt="Neon"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/PostCSS-DD3A0A?style=flat&logo=postcss&logoColor=white" alt="PostCSS"/>
+  <img src="https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white" alt="npm"/>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
