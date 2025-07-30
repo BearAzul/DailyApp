@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { useTheme } from "next-themes";
 import {
   Sheet,
   SheetContent,
@@ -10,26 +9,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { Home, Menu, Sun, Moon, User, Bell, LogOut } from "lucide-react";
+import { Home, Menu, User, Bell, LogOut } from "lucide-react";
 import Link from "next/link";
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { ModeToggle } from "./ModeToggle";
 
 const MobileNavbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { user } = useUser();
 
   return (
     <div className="flex md:hidden items-center space-x-2">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="mr-2"
-      >
-        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      </Button>
+      <ModeToggle variant="ghost" />
 
       <Sheet open={showMenu} onOpenChange={setShowMenu}>
         <SheetTrigger asChild>
