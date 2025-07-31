@@ -33,6 +33,7 @@ const Sidebar = async () => {
                     user.image ||
                     `https://ui-avatars.com/api/?name=${user.name}&background=random`
                   }
+                  alt={user.name || "User Avatar"}
                 />
               </Avatar>
 

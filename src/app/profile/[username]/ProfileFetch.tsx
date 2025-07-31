@@ -102,6 +102,7 @@ const ProfileFetch = ({
                       user.image ??
                       `https://ui-avatars.com/api/?name=${user.name}&background=random`
                     }
+                    alt={user.name ?? user.username}
                   />
                 </Avatar>
                 <h1 className="mt-4 text-2xl font-bold">

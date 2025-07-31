@@ -88,7 +88,13 @@ const CardPosts = ({
           <div className="flex space-x-3 sm:space-x-4">
             <Link href={`/profile/${post.author.username}`}>
               <Avatar className="size-8 sm:w-10 sm:h-10">
-                <AvatarImage src={post.author.image ?? "/avatar.png"} />
+                <AvatarImage
+                  src={
+                    post.author.image ??
+                    `https://ui-avatars.com/api/?name=${post.author.name}&background=random`
+                  }
+                  alt="User avatar"
+                />
               </Avatar>
             </Link>
 
@@ -112,14 +118,13 @@ const CardPosts = ({
                     </span>
                   </div>
                 </div>
-            
+
                 {dbUserId === post.author.id && (
                   <DeleteAlert
                     isDeleting={isDeleting}
                     onDelete={handleDeletePost}
                   />
                 )}
-
               </div>
               <p className="mt-2 text-sm text-foreground break-words">
                 {post.content}
@@ -198,6 +203,7 @@ const CardPosts = ({
                           comment.author.image ??
                           `https://ui-avatars.com/api/?name=${comment.author.name}&background=random`
                         }
+                        alt="Comment author avatar"
                       />
                     </Avatar>
                     <div className="flex-1 min-w-0">
@@ -222,7 +228,13 @@ const CardPosts = ({
               {user ? (
                 <div className="flex space-x-3">
                   <Avatar className="size-8 flex-shrink-0">
-                    <AvatarImage src={user?.imageUrl || "/avatar.png"} />
+                    <AvatarImage
+                      src={
+                        user?.imageUrl ||
+                        `https://ui-avatars.com/api/?name=${user.username}&background=random`
+                      }
+                      alt="Your avatar"
+                    />
                   </Avatar>
                   <div className="flex-1">
                     <Textarea
