@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Card,
   CardHeader,
@@ -83,14 +84,19 @@ const NotificationsPage = () => {
                     !notification.read ? "bg-muted/50" : ""
                   }`}
                 >
-                  <Avatar className="mt-1">
-                    <AvatarImage
-                      src={
-                        notification.creator.image ??
-                        `https://ui-avatars.com/api/?name=${notification.creator.name}&background=random`
-                      }
-                    />
-                  </Avatar>
+                  <Link
+                    href={`/profile/${notification.creator.username}`}
+                    className="mt-1 flex-shrink-0"
+                  >
+                    <Avatar>
+                      <AvatarImage
+                        src={
+                          notification.creator.image ??
+                          `https://ui-avatars.com/api/?name=${notification.creator.name}&background=random`
+                        }
+                      />
+                    </Avatar>
+                  </Link>
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       {getNotificationIcon(notification.type)}

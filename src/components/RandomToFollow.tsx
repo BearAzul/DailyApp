@@ -21,7 +21,7 @@ const RandomToFollow = async () => {
               key={user.id}
               className="flex gap-2 items-center justify-between "
             >
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2">
                 <Link href={`/profile/${user.username}`}>
                   <Avatar>
                     <AvatarImage

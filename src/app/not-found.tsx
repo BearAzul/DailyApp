@@ -1,8 +1,8 @@
 
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
+import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
   return (
@@ -11,13 +11,12 @@ const NotFound = () => {
         <CardContent className="pt-6">
           <div className="text-center space-y-6">
             <p className="text-8xl font-bold text-primary font-mono">404</p>
-
             <div className="space-y-2">
               <h1 className="text-2xl font-bold tracking-tight">
-                User not found
+                Page not found
               </h1>
               <p className="text-muted-foreground">
-                The user you're looking for doesn't exist.
+                The Page you're looking for doesn't exist.
               </p>
             </div>
 
@@ -41,6 +40,6 @@ const NotFound = () => {
       </Card>
     </div>
   );
-};
+}
 
-export default NotFound;
+export default NotFound
